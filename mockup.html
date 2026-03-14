@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banana Bread — Design Mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-paper:    #fdf9f4;
+      --color-ink:      #252018;
+      --color-ink-soft: #5a5446;
+      --color-rule:     #c8bfaf;
+      --color-accent:   #6b6b3a;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Spectral', Georgia, serif;
+
+      --measure: 68ch;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--color-paper);
+      color: var(--color-ink);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    /* ── Masthead ─────────────────────────────────────────── */
+    .masthead {
+      text-align: center;
+      padding: 2.5rem 2rem 1.5rem;
+      border-bottom: 3px double var(--color-ink);
+    }
+
+    .masthead__eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-ink-soft);
+      margin-bottom: 0.75rem;
+    }
+
+    .masthead__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .masthead__tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--color-ink-soft);
+      margin-top: 0.5rem;
+    }
+
+    .masthead__meta {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-ink-soft);
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-rule);
+    }
+
+    /* ── Nav ──────────────────────────────────────────────── */
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 0.75rem 2rem;
+      border-bottom: 1px solid var(--color-ink);
+    }
+
+    .nav a {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-ink);
+      text-decoration: none;
+    }
+    .nav a:hover { color: var(--color-accent); }
+
+    /* ── Page ─────────────────────────────────────────────── */
+    .page {
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* ── Feature ──────────────────────────────────────────── */
+    .feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--color-rule);
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .feature { grid-template-columns: 1fr; }
+    }
+
+    .feature__image {
+      background: var(--color-rule);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-ink-soft);
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .feature__body { display: flex; flex-direction: column; justify-content: center; }
+
+    .feature__kicker {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .feature__headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .feature__dek {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--color-ink-soft);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature__byline {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-ink-soft);
+    }
+
+    /* ── Grid ─────────────────────────────────────────────── */
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-ink-soft);
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .card {
+      border-top: 1px solid var(--color-rule);
+      padding-top: 1rem;
+    }
+
+    .card__image {
+      background: var(--color-rule);
+      aspect-ratio: 3/2;
+      margin-bottom: 1rem;
+    }
+
+    .card__kicker {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .card__headline {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .card__excerpt {
+      font-size: 0.9rem;
+      color: var(--color-ink-soft);
+      line-height: 1.6;
+    }
+
+    .card__byline {
+      margin-top: 0.75rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-ink-soft);
+    }
+
+    /* ── Article body sample ──────────────────────────────── */
+    .article {
+      max-width: var(--measure);
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      border-top: 3px double var(--color-ink);
+    }
+
+    .article__kicker {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .article__headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .article__dek {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--color-ink-soft);
+      border-top: 1px solid var(--color-rule);
+      border-bottom: 1px solid var(--color-rule);
+      padding: 1rem 0;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .article__byline {
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-ink-soft);
+      margin-bottom: 2rem;
+    }
+
+    .article__body p {
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .article__body p:first-of-type::first-letter {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 0.85;
+      float: left;
+      margin-right: 0.1em;
+      margin-top: 0.05em;
+      color: var(--color-ink);
+    }
+
+    .pull-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: var(--color-ink);
+      border-top: 2px solid var(--color-ink);
+      border-bottom: 1px solid var(--color-rule);
+      padding: 1.25rem 0;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <p class="masthead__eyebrow">Est. 2026 &nbsp;·&nbsp; A cooking journal</p>
+    <h1 class="masthead__title">Banana Bread</h1>
+    <p class="masthead__tagline">Recipes, technique, and the pleasure of cooking well</p>
+    <p class="masthead__meta">Saturday, 14 March 2026 &nbsp;·&nbsp; Vol. I, No. 1</p>
+  </header>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="#">Recipes</a>
+    <a href="#">Technique</a>
+    <a href="#">Ingredients</a>
+    <a href="#">Essays</a>
+    <a href="#">About</a>
+  </nav>
+
+  <!-- Feature -->
+  <main class="page">
+    <article class="feature">
+      <div class="feature__image">[ Hero image ]</div>
+      <div class="feature__body">
+        <p class="feature__kicker">Bread & Baking</p>
+        <h2 class="feature__headline">The No-Knead Loaf That Changed How I Think About Time</h2>
+        <p class="feature__dek">Eighteen hours is not a long time. It just feels that way when you're waiting for bread.</p>
+        <p class="feature__byline">By Orrin Manning &nbsp;·&nbsp; 14 March 2026</p>
+      </div>
+    </article>
+
+    <!-- Card grid -->
+    <p class="section-label">Latest</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card__image"></div>
+        <p class="card__kicker">Fundamentals</p>
+        <h3 class="card__headline">What a Kitchen Scale Actually Changes</h3>
+        <p class="card__excerpt">Two months into cooking seriously, the scale was the first piece of equipment that made me feel like I understood what I was doing.</p>
+        <p class="card__byline">Orrin Manning &nbsp;·&nbsp; 10 March 2026</p>
+      </div>
+      <div class="card">
+        <div class="card__image"></div>
+        <p class="card__kicker">Recipe</p>
+        <h3 class="card__headline">Brown Butter Banana Bread With Walnuts</h3>
+        <p class="card__excerpt">The brown butter is not optional. Everything else is negotiable.</p>
+        <p class="card__byline">Orrin Manning &nbsp;·&nbsp; 5 March 2026</p>
+      </div>
+      <div class="card">
+        <div class="card__image"></div>
+        <p class="card__kicker">Technique</p>
+        <h3 class="card__headline">On Mise en Place, and Why I Was Wrong to Ignore It</h3>
+        <p class="card__excerpt">Every professional chef tells you to prep everything before you start cooking. I thought it was advice for professionals. It isn't.</p>
+        <p class="card__byline">Orrin Manning &nbsp;·&nbsp; 28 Feb 2026</p>
+      </div>
+    </div>
+
+    <!-- Article body sample -->
+    <section class="article">
+      <p class="article__kicker">Bread & Baking</p>
+      <h2 class="article__headline">The No-Knead Loaf That Changed How I Think About Time</h2>
+      <p class="article__dek">Eighteen hours is not a long time. It just feels that way when you're waiting for bread — and then it comes out of the oven and you understand why you waited.</p>
+      <p class="article__byline">By Orrin Manning &nbsp;·&nbsp; Saturday, 14 March 2026</p>
+      <div class="article__body">
+        <p>The first time I made no-knead bread I didn't believe the recipe. Four ingredients. No kneading. Leave it overnight. That's it. It seemed like the kind of thing someone writes when they want to feel clever about doing very little.</p>
+        <p>I was wrong. The bread came out with a crust that shattered when I tapped it — the kind of sound that makes you feel like you've done something right. The crumb was open and irregular in the way that supermarket bread never is, which turns out to be the whole point.</p>
+        <div class="pull-quote">
+          "The fermentation is the work. You're just the person who remembers to start it the night before."
+        </div>
+        <p>What the long rise does is give time for flavour to develop in a way that fast commercial yeast simply cannot replicate. The bacteria and wild yeast do their work slowly, producing the acids and esters that make bread taste like something rather than nothing.</p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

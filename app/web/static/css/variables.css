@@ -1,0 +1,27 @@
+/* Design tokens — edit here to change the whole site */
+:root {
+  /* Colors */
+  --color-paper:    #fdf9f4;
+  --color-ink:      #252018;
+  --color-ink-soft: #5a5446;
+  --color-rule:     #c8bfaf;
+  --color-accent:   #6b6b3a;
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Spectral', Georgia, serif;
+
+  /* Spacing */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout */
+  --container-max: 72rem;
+  --measure:       68ch;
+}

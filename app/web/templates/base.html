@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Banana Bread{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <header class="masthead">
+    <p class="masthead__eyebrow">A cooking journal</p>
+    <a href="/"><h1 class="masthead__title">Banana Bread</h1></a>
+    <p class="masthead__tagline">Recipes, technique, and the pleasure of cooking well</p>
+    <p class="masthead__meta">{{ date }}</p>
+  </header>
+
+  <nav class="nav">
+    <a href="/recipes" class="nav__link">Recipes</a>
+    <a href="/technique" class="nav__link">Technique</a>
+    <a href="/ingredients" class="nav__link">Ingredients</a>
+    <a href="/essays" class="nav__link">Essays</a>
+    <a href="/about" class="nav__link">About</a>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
