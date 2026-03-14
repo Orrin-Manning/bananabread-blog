@@ -60,11 +60,62 @@ a:hover { text-decoration: underline; }
 }
 
 /* ─── Nav ─────────────────────────────────────────────────── */
+.nav-wrapper {
+  position: relative;
+  border-bottom: 1px solid var(--color-ink);
+}
+
+/* Stipple edge indicators */
+.nav-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3.5rem;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nav-edge--left  { left: 0; }
+.nav-edge--right { right: 0; }
+
+/* Dot layer — rotated 30°, oversized to fill after rotation */
+.nav-edge::before {
+  content: '';
+  position: absolute;
+  width: 160%;
+  height: 160%;
+  top: -30%;
+  left: -30%;
+  background: radial-gradient(circle, var(--color-ink) 1px, transparent 1px);
+  background-size: 4px 4px;
+  transform: rotate(45deg);
+}
+
+/* Horizontal fade mask — applied to the span, independent of dot rotation */
+.nav-edge--left {
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, black 100%);
+  mask-image: linear-gradient(to left, transparent 0%, black 100%);
+}
+.nav-edge--right {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 100%);
+}
+
+/* Right edge visible by default on mobile; JS drives opacity from here */
+@media (max-width: 639px) {
+  .nav-edge--right { opacity: 0.7; }
+}
+
+@media (min-width: 640px) {
+  .nav-edge { display: none; }
+}
+
 .nav {
   display: flex;
   gap: var(--space-6);
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-ink);
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;

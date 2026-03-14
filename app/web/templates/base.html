@@ -18,15 +18,41 @@
     <p class="masthead__meta">{{ date }}</p>
   </header>
 
-  <nav class="nav">
-    <a href="/recipes" class="nav__link">Recipes</a>
-    <a href="/technique" class="nav__link">Technique</a>
-    <a href="/ingredients" class="nav__link">Ingredients</a>
-    <a href="/essays" class="nav__link">Essays</a>
-    <a href="/about" class="nav__link">About</a>
-  </nav>
+  <div class="nav-wrapper">
+    <span class="nav-edge nav-edge--left" aria-hidden="true"></span>
+    <nav class="nav">
+      <a href="/recipes" class="nav__link">Recipes</a>
+      <a href="/technique" class="nav__link">Technique</a>
+      <a href="/ingredients" class="nav__link">Ingredients</a>
+      <a href="/essays" class="nav__link">Essays</a>
+      <a href="/about" class="nav__link">About</a>
+    </nav>
+    <span class="nav-edge nav-edge--right" aria-hidden="true"></span>
+  </div>
 
   {% block content %}{% endblock %}
+
+  <script>
+    (function () {
+      var wrapper = document.querySelector('.nav-wrapper');
+      var nav = wrapper && wrapper.querySelector('.nav');
+      var leftEdge = wrapper && wrapper.querySelector('.nav-edge--left');
+      var rightEdge = wrapper && wrapper.querySelector('.nav-edge--right');
+      if (!nav) return;
+
+      function update() {
+        var atStart = nav.scrollLeft <= 2;
+        var atEnd = nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 2;
+        if (rightEdge) rightEdge.style.opacity = atEnd ? '0' : '0.7';
+        if (leftEdge)  leftEdge.style.opacity  = atStart ? '0' : '0.7';
+      }
+
+      nav.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+      window.addEventListener('load', update);
+      update();
+    })();
+  </script>
 
   {% block extra_scripts %}{% endblock %}
 </body>
