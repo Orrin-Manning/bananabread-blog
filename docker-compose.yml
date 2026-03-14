@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    networks:
+      - default
+      - proxy
+
+networks:
+  proxy:
+    external: true
