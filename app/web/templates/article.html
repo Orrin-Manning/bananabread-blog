@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} — Banana Bread{% endblock %}
+
+{% block content %}
+<article class="article">
+  <p class="article__kicker">{{ article.category }}</p>
+  <h1 class="article__headline">{{ article.title }}</h1>
+  <p class="article__dek">{{ article.excerpt }}</p>
+  <p class="article__byline">{{ article.date.strftime('%-d %B %Y') }}</p>
+  <div class="article__body">
+    {{ body_html | safe }}
+  </div>
+</article>
+{% endblock %}
